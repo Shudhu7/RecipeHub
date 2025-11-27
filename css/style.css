@@ -1,0 +1,166 @@
+/* Smooth native scrolling for anchors */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+.float {
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Category Card */
+.cat-card {
+    background: linear-gradient(to bottom right, #fff7ed, #fffaf0);
+    border-radius: 20px;
+    padding: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.25s transform, 0.25s box-shadow;
+}
+
+.cat-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Reviews */
+.review-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 20px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+    font-style: italic;
+}
+
+/* Search suggestions dropdown */
+#searchSuggestions,
+.search-suggestions {
+    position: absolute;
+    left: 0;
+    top: calc(100% + 8px);
+    z-index: 9999;
+    list-style: none;
+    margin: 0;
+    padding: 6px;
+    width: 100%;
+    max-width: 520px;
+    box-sizing: border-box;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(2, 6, 23, 0.08);
+    max-height: 260px;
+    overflow-y: auto;
+    display: none;
+}
+
+#searchSuggestions.show, .search-suggestions.show {
+    display: block;
+}
+
+#searchSuggestions li, .search-suggestions li {
+    padding: 10px 12px;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #0f172a;
+}
+
+#searchSuggestions li:hover, .search-suggestions li:hover,
+#searchSuggestions li.active, .search-suggestions li.active {
+    background: #f8fafc;
+}
+
+#searchSuggestions .meta, .search-suggestions .meta {
+    color: #6b7280;
+    font-size: 13px;
+    margin-left: 8px;
+}
+
+/* ensure parent of input is positioned for absolute children */
+.search-input-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    max-width: 520px;
+}
+
+/* HERO image sizing helper */
+.hero-image {
+    width: 100%;
+    height: auto;
+    max-height: 520px;
+    object-fit: cover;
+    border-radius: 1rem;
+}
+
+/* recipe card image helper */
+.recipe-card-img {
+    width: 100%;
+    height: 12rem;
+    object-fit: cover;
+    border-radius: 0.75rem;
+}
+
+/* FOOTER adjustments on small screens */
+@media (max-width: 768px) {
+    .cat-card {
+        padding: 1rem;
+        border-radius: 14px;
+    }
+
+    .fade-in {
+        animation-duration: 0.45s;
+    }
+
+    .hero-image {
+        max-height: 260px;
+    }
+
+    .recipe-card-img {
+        height: 12rem;
+    }
+
+    footer .grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Allow suggestions to expand full width on small devices */
+    #searchSuggestions, .search-suggestions {
+        max-width: 100% !important;
+        left: 0 !important;
+        right: 0 !important;
+    }
+
+    /* Make the absolute trending card not overflow on small screens */
+    .absolute.-bottom-6.-left-6 {
+        position: static;
+        transform: none;
+    }
+}

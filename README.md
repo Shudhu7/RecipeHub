@@ -29,7 +29,6 @@ Simply open `html/index.html` in your browser - no build process required!
 - **HTML5**: Semantic markup
 - **CSS3**: Custom styles with animations and transitions
 - **JavaScript (ES6+)**: Vanilla JS for interactivity
-- **Tailwind CSS**: Utility-first CSS framework via CDN
 - **Responsive Design**: Mobile-first approach
 
 ## 📁 Project Structure
